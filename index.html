@@ -21,18 +21,18 @@
             align-items: center;
             padding: 20px;
         }
-        /* Modal Container */
+        /* Modal Container - Wider */
         .modal-container {
             background: white;
             border-radius: 16px;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             width: 100%;
-            max-width: 520px;
+            max-width: 850px;
             overflow: hidden;
         }
         /* Modal Header */
         .modal-header {
-            padding: 24px;
+            padding: 24px 32px;
             border-bottom: 1px solid #e2e8f0;
             background: #f8fafc;
             display: flex;
@@ -60,18 +60,57 @@
             justify-content: center;
             font-size: 18px;
         }
-        /* Modal Content */
+        /* Modal Content - Two Column Layout */
         .modal-content {
-            padding: 24px;
+            padding: 24px 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        /* Left Column */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        /* Right Column */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        /* Common Card Styles */
+        .section-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .section-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .section-card h3 i {
+            color: #3b82f6;
         }
         /* Payment Info */
         .payment-info {
+            grid-column: 1 / -1;
+            background: #f0f9ff;
+            border-color: #bae6fd;
+        }
+        .payment-info-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #e2e8f0;
         }
         .info-group {
             display: flex;
@@ -95,53 +134,17 @@
             font-weight: 700;
             color: #0f172a;
         }
-        /* Payment Details */
-        .payment-details {
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 24px;
-            border: 1px solid #e2e8f0;
-        }
-        .payment-details h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .payment-details h3 i {
-            color: #3b82f6;
-        }
         /* Schedule Options */
-        .schedule-options {
-            margin-bottom: 24px;
-        }
-        .schedule-options h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .schedule-options h3 i {
-            color: #3b82f6;
-        }
         .schedule-type-selector {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-bottom: 20px;
         }
         .schedule-type {
-            flex: 1;
-            padding: 12px;
+            padding: 16px;
             border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            text-align: center;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.2s;
             background: white;
@@ -149,6 +152,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            text-align: center;
         }
         .schedule-type:hover {
             border-color: #3b82f6;
@@ -159,38 +163,53 @@
             background: #eff6ff;
         }
         .schedule-type .icon {
-            font-size: 20px;
+            font-size: 24px;
             color: #64748b;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f1f5f9;
+            border-radius: 8px;
         }
         .schedule-type.active .icon {
+            background: #dbeafe;
             color: #3b82f6;
         }
         .schedule-type .label {
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             color: #334155;
         }
-        /* Schedule Form */
-        .schedule-form {
-            margin-bottom: 24px;
+        .schedule-type .description {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 4px;
         }
-        .form-group {
-            margin-bottom: 20px;
+        /* Payment Details */
+        .payment-details .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
         }
-        .form-group label {
+        .payment-details .form-group {
+            margin-bottom: 16px;
+        }
+        .payment-details label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            font-weight: 500;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 600;
             color: #334155;
         }
-        .form-group label.required::after {
+        .payment-details label.required::after {
             content: " *";
             color: #ef4444;
         }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .payment-details input,
+        .payment-details select {
             width: 100%;
             padding: 10px 12px;
             border: 1px solid #cbd5e1;
@@ -199,53 +218,28 @@
             background: white;
             transition: border-color 0.2s;
         }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .payment-details input:focus,
+        .payment-details select:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
         /* Recurring Options */
-        .recurring-options {
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 24px;
-            border: 1px solid #e2e8f0;
-        }
-        .recurring-options h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .recurring-options h3 i {
-            color: #3b82f6;
-        }
         .frequency-selector {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .frequency-option {
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #cbd5e1;
-            border-radius: 6px;
+            border-radius: 8px;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
             background: white;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
         }
         .frequency-option:hover {
@@ -257,15 +251,15 @@
             color: #3b82f6;
         }
         .end-options {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 12px;
-            align-items: center;
+            margin-bottom: 16px;
         }
         .end-option {
-            flex: 1;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #cbd5e1;
-            border-radius: 6px;
+            border-radius: 8px;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s;
@@ -279,30 +273,17 @@
             border-color: #3b82f6;
             background: #eff6ff;
         }
+        .date-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
         /* Payment Method */
-        .payment-method {
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 24px;
-            border: 1px solid #e2e8f0;
-        }
-        .payment-method h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .payment-method h3 i {
-            color: #3b82f6;
-        }
         .saved-cards {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 16px;
         }
         .card-option {
@@ -335,13 +316,14 @@
         .card-details .type {
             font-weight: 500;
             color: #334155;
+            font-size: 14px;
         }
         .card-details .number {
-            font-size: 13px;
+            font-size: 12px;
             color: #64748b;
         }
         .card-expiry {
-            font-size: 13px;
+            font-size: 12px;
             color: #64748b;
         }
         .add-new-card {
@@ -353,6 +335,7 @@
             cursor: pointer;
             transition: all 0.2s;
             background: white;
+            font-size: 14px;
         }
         .add-new-card:hover {
             border-color: #3b82f6;
@@ -363,46 +346,76 @@
             margin-right: 8px;
         }
         /* Summary */
-        .summary {
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 24px;
-            border: 1px solid #e2e8f0;
-        }
-        .summary h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 16px;
+        .summary-items {
             display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .summary h3 i {
-            color: #3b82f6;
+            flex-direction: column;
+            gap: 12px;
         }
         .summary-item {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding-bottom: 12px;
             border-bottom: 1px solid #e2e8f0;
         }
         .summary-item:last-child {
             border-bottom: none;
             font-weight: 600;
             color: #0f172a;
-            padding-top: 12px;
+            padding-top: 8px;
+            margin-top: 8px;
+            border-top: 1px solid #e2e8f0;
         }
         .summary-label {
             color: #64748b;
+            font-size: 14px;
         }
         .summary-value {
             font-weight: 500;
+            font-size: 14px;
+        }
+        /* Notifications */
+        .notification-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .notification-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+        }
+        .notification-option.active {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .notification-option input {
+            margin: 0;
+        }
+        /* Notes */
+        .notes-section textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            transition: border-color 0.2s;
+            min-height: 100px;
+            resize: vertical;
+        }
+        .notes-section textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         /* Modal Footer */
         .modal-footer {
-            padding: 24px;
+            padding: 24px 32px;
             border-top: 1px solid #e2e8f0;
             display: flex;
             justify-content: space-between;
@@ -419,6 +432,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            min-width: 140px;
+            justify-content: center;
         }
         .btn-secondary {
             background: white;
@@ -436,6 +451,28 @@
         .btn-primary:hover {
             background: #2563eb;
         }
+        /* Status Badges */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            background: #dcfce7;
+            color: #166534;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modal-container {
+                max-width: 100%;
+            }
+            .modal-content {
+                grid-template-columns: 1fr;
+            }
+            .payment-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -451,179 +488,237 @@
             </div>
         </div>
 
-        <!-- Modal Content -->
+        <!-- Payment Info - Full Width -->
         <div class="modal-content">
-            <!-- Payment Information -->
-            <div class="payment-info">
-                <div class="info-group">
-                    <div class="info-label">Invoice Number</div>
-                    <div class="info-value">INV-980654</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-label">Member Name</div>
-                    <div class="info-value">Francesca Ferrucci</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-label">Due Date</div>
-                    <div class="info-value">Jan 15, 2026</div>
-                </div>
-                <div class="info-group">
-                    <div class="info-label">Total Amount</div>
-                    <div class="info-value amount">$244.00</div>
-                </div>
-            </div>
-
-            <!-- Payment Details -->
-            <div class="payment-details">
-                <h3><i class="fas fa-file-invoice-dollar"></i> Payment Details</h3>
-                <div class="form-group">
-                    <label>Payment Amount</label>
-                    <input type="text" value="$244.00" readonly>
-                </div>
-                <div class="form-group">
-                    <label class="required">Scheduled Date</label>
-                    <input type="date" value="2026-01-15">
-                </div>
-            </div>
-
-            <!-- Schedule Options -->
-            <div class="schedule-options">
-                <h3><i class="fas fa-clock"></i> Schedule Type</h3>
-                <div class="schedule-type-selector">
-                    <div class="schedule-type active" onclick="selectScheduleType('one-time')">
-                        <i class="fas fa-calendar-day icon"></i>
-                        <span class="label">One-Time</span>
+            <div class="section-card payment-info">
+                <h3><i class="fas fa-file-invoice-dollar"></i> Payment Information</h3>
+                <div class="payment-info-grid">
+                    <div class="info-group">
+                        <div class="info-label">Invoice Number</div>
+                        <div class="info-value">INV-980654</div>
                     </div>
-                    <div class="schedule-type" onclick="selectScheduleType('recurring')">
-                        <i class="fas fa-redo-alt icon"></i>
-                        <span class="label">Recurring</span>
+                    <div class="info-group">
+                        <div class="info-label">Member Name</div>
+                        <div class="info-value">Francesca Ferrucci</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Due Date</div>
+                        <div class="info-value">Jan 15, 2026</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Total Amount</div>
+                        <div class="info-value amount">$244.00</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Recurring Options (Initially Hidden) -->
-            <div class="recurring-options" id="recurringOptions" style="display: none;">
-                <h3><i class="fas fa-sync-alt"></i> Recurring Settings</h3>
-                <div class="form-group">
-                    <label class="required">Frequency</label>
-                    <div class="frequency-selector">
-                        <div class="frequency-option active" onclick="selectFrequency('weekly')">Weekly</div>
-                        <div class="frequency-option" onclick="selectFrequency('biweekly')">Bi-Weekly</div>
-                        <div class="frequency-option" onclick="selectFrequency('monthly')">Monthly</div>
-                        <div class="frequency-option" onclick="selectFrequency('quarterly')">Quarterly</div>
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Schedule Type -->
+                <div class="section-card">
+                    <h3><i class="fas fa-clock"></i> Schedule Type</h3>
+                    <div class="schedule-type-selector">
+                        <div class="schedule-type active" onclick="selectScheduleType('one-time')">
+                            <div class="icon">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                            <div>
+                                <div class="label">One-Time</div>
+                                <div class="description">Single payment</div>
+                            </div>
+                        </div>
+                        <div class="schedule-type" onclick="selectScheduleType('recurring')">
+                            <div class="icon">
+                                <i class="fas fa-redo-alt"></i>
+                            </div>
+                            <div>
+                                <div class="label">Recurring</div>
+                                <div class="description">Multiple payments</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="required">Ends</label>
+
+                <!-- Payment Details -->
+                <div class="section-card payment-details">
+                    <h3><i class="fas fa-calendar-check"></i> Payment Details</h3>
                     <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">Payment Amount</label>
+                            <input type="text" value="$244.00" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="required">Scheduled Date</label>
+                            <input type="date" id="scheduledDate" value="2026-01-15">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurring Options -->
+                <div class="section-card" id="recurringOptions" style="display: none;">
+                    <h3><i class="fas fa-sync-alt"></i> Recurring Settings</h3>
+                    <div class="form-group">
+                        <label class="required">Frequency</label>
+                        <div class="frequency-selector">
+                            <div class="frequency-option active" onclick="selectFrequency('weekly')">Weekly</div>
+                            <div class="frequency-option" onclick="selectFrequency('biweekly')">Bi-Weekly</div>
+                            <div class="frequency-option" onclick="selectFrequency('monthly')">Monthly</div>
+                            <div class="frequency-option" onclick="selectFrequency('quarterly')">Quarterly</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Ends</label>
                         <div class="end-options">
                             <div class="end-option active" onclick="selectEndOption('date')">On Date</div>
                             <div class="end-option" onclick="selectEndOption('occurrences')">After Occurrences</div>
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>End Date</label>
-                        <input type="date" value="2026-12-31">
-                    </div>
-                    <div class="form-group">
-                        <label>Number of Occurrences</label>
-                        <input type="number" value="12" min="1" max="99">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Payment Method -->
-            <div class="payment-method">
-                <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
-                <div class="saved-cards">
-                    <div class="card-option active" onclick="selectCard('visa')">
-                        <div class="card-info">
-                            <i class="fab fa-cc-visa card-icon"></i>
-                            <div class="card-details">
-                                <div class="type">Visa ending in 4242</div>
-                                <div class="number">•••• •••• •••• 4242</div>
-                            </div>
+                    <div class="date-inputs">
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="date" id="endDate" value="2026-12-31">
                         </div>
-                        <div class="card-expiry">Exp: 05/26</div>
-                    </div>
-                    <div class="card-option" onclick="selectCard('mastercard')">
-                        <div class="card-info">
-                            <i class="fab fa-cc-mastercard card-icon"></i>
-                            <div class="card-details">
-                                <div class="type">Mastercard ending in 8888</div>
-                                <div class="number">•••• •••• •••• 8888</div>
-                            </div>
+                        <div class="form-group">
+                            <label>Number of Occurrences</label>
+                            <input type="number" id="occurrences" value="12" min="1" max="99">
                         </div>
-                        <div class="card-expiry">Exp: 08/27</div>
                     </div>
                 </div>
-                <div class="add-new-card" onclick="addNewCard()">
-                    <i class="fas fa-plus"></i> Add New Payment Method
-                </div>
-            </div>
 
-            <!-- Summary -->
-            <div class="summary">
-                <h3><i class="fas fa-list-check"></i> Schedule Summary</h3>
-                <div class="summary-item">
-                    <span class="summary-label">Payment Amount:</span>
-                    <span class="summary-value">$244.00</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">First Payment Date:</span>
-                    <span class="summary-value">Jan 15, 2026</span>
-                </div>
-                <div class="summary-item" id="frequencySummary">
-                    <span class="summary-label">Frequency:</span>
-                    <span class="summary-value">One-Time</span>
-                </div>
-                <div class="summary-item" id="endSummary">
-                    <span class="summary-label">Payment Method:</span>
-                    <span class="summary-value">Visa ending in 4242</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">Total Scheduled:</span>
-                    <span class="summary-value">$244.00</span>
-                </div>
-            </div>
-
-            <!-- Notification Settings -->
-            <div class="form-group">
-                <label><i class="fas fa-bell"></i> Notifications</label>
-                <div class="form-row">
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <input type="checkbox" id="emailNotification" checked>
-                        <label for="emailNotification" style="margin: 0;">Email Reminder</label>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <input type="checkbox" id="smsNotification" checked>
-                        <label for="smsNotification" style="margin: 0;">SMS Reminder</label>
+                <!-- Notifications -->
+                <div class="section-card">
+                    <h3><i class="fas fa-bell"></i> Notifications</h3>
+                    <div class="notification-options">
+                        <label class="notification-option active">
+                            <input type="checkbox" id="emailNotification" checked>
+                            <span>Email Reminder</span>
+                        </label>
+                        <label class="notification-option active">
+                            <input type="checkbox" id="smsNotification" checked>
+                            <span>SMS Reminder</span>
+                        </label>
                     </div>
                 </div>
             </div>
 
-            <!-- Notes -->
-            <div class="form-group">
-                <label>Notes</label>
-                <textarea rows="3" placeholder="Add any notes about this scheduled payment..."></textarea>
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Payment Method -->
+                <div class="section-card">
+                    <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                    <div class="saved-cards">
+                        <div class="card-option active" onclick="selectCard('visa')">
+                            <div class="card-info">
+                                <i class="fab fa-cc-visa card-icon"></i>
+                                <div class="card-details">
+                                    <div class="type">Visa ending in 4242</div>
+                                    <div class="number">•••• •••• •••• 4242</div>
+                                </div>
+                            </div>
+                            <div class="card-expiry">Exp: 05/26</div>
+                        </div>
+                        <div class="card-option" onclick="selectCard('mastercard')">
+                            <div class="card-info">
+                                <i class="fab fa-cc-mastercard card-icon"></i>
+                                <div class="card-details">
+                                    <div class="type">Mastercard ending in 8888</div>
+                                    <div class="number">•••• •••• •••• 8888</div>
+                                </div>
+                            </div>
+                            <div class="card-expiry">Exp: 08/27</div>
+                        </div>
+                    </div>
+                    <div class="add-new-card" onclick="addNewCard()">
+                        <i class="fas fa-plus"></i> Add New Payment Method
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="section-card">
+                    <h3><i class="fas fa-list-check"></i> Schedule Summary</h3>
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <span class="summary-label">Payment Amount:</span>
+                            <span class="summary-value">$244.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Scheduled Date:</span>
+                            <span class="summary-value" id="summaryDate">Jan 15, 2026</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Schedule Type:</span>
+                            <span class="summary-value" id="summaryType">One-Time</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Payment Method:</span>
+                            <span class="summary-value" id="summaryMethod">Visa ending in 4242</span>
+                        </div>
+                        <div class="summary-item" id="frequencySummary" style="display: none;">
+                            <span class="summary-label">Frequency:</span>
+                            <span class="summary-value" id="summaryFrequency">Monthly</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Status:</span>
+                            <span class="summary-value"><span class="status-badge">Scheduled</span></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Total Scheduled:</span>
+                            <span class="summary-value">$244.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="section-card notes-section">
+                    <h3><i class="fas fa-sticky-note"></i> Notes</h3>
+                    <textarea placeholder="Add any notes about this scheduled payment...">Member enrolled two existing pets and adopted a new puppy.</textarea>
+                </div>
             </div>
         </div>
 
         <!-- Modal Footer -->
         <div class="modal-footer">
-            <button class="btn btn-secondary">
+            <button class="btn btn-secondary" onclick="cancelSchedule()">
                 <i class="fas fa-times"></i> Cancel
             </button>
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" onclick="schedulePayment()">
                 <i class="fas fa-calendar-check"></i> Schedule Payment
             </button>
         </div>
     </div>
 
     <script>
-        // Toggle recurring options
+        // Initialize date picker with tomorrow's date
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        const scheduledDateInput = document.getElementById('scheduledDate');
+        const endDateInput = document.getElementById('endDate');
+        
+        scheduledDateInput.value = tomorrow.toISOString().split('T')[0];
+        scheduledDateInput.min = tomorrow.toISOString().split('T')[0];
+        
+        endDateInput.value = new Date(tomorrow.getFullYear(), tomorrow.getMonth() + 6, tomorrow.getDate()).toISOString().split('T')[0];
+        endDateInput.min = tomorrow.toISOString().split('T')[0];
+        
+        // Update summary date
+        updateSummaryDate();
+
+        // Date change listener
+        scheduledDateInput.addEventListener('change', updateSummaryDate);
+
+        function updateSummaryDate() {
+            const date = new Date(scheduledDateInput.value);
+            const formattedDate = date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+            document.getElementById('summaryDate').textContent = formattedDate;
+        }
+
+        // Schedule type selection
         function selectScheduleType(type) {
             const scheduleTypes = document.querySelectorAll('.schedule-type');
             scheduleTypes.forEach(st => st.classList.remove('active'));
@@ -631,43 +726,45 @@
             
             const recurringOptions = document.getElementById('recurringOptions');
             const frequencySummary = document.getElementById('frequencySummary');
+            const summaryType = document.getElementById('summaryType');
             
             if (type === 'recurring') {
                 recurringOptions.style.display = 'block';
-                frequencySummary.innerHTML = '<span class="summary-label">Frequency:</span><span class="summary-value">Monthly</span>';
-                updateSummary();
+                frequencySummary.style.display = 'flex';
+                summaryType.textContent = 'Recurring';
+                document.getElementById('summaryFrequency').textContent = 'Monthly';
             } else {
                 recurringOptions.style.display = 'none';
-                frequencySummary.innerHTML = '<span class="summary-label">Frequency:</span><span class="summary-value">One-Time</span>';
-                updateSummary();
+                frequencySummary.style.display = 'none';
+                summaryType.textContent = 'One-Time';
             }
         }
 
-        // Select frequency
+        // Frequency selection
         function selectFrequency(freq) {
             const frequencyOptions = document.querySelectorAll('.frequency-option');
             frequencyOptions.forEach(fo => fo.classList.remove('active'));
             event.currentTarget.classList.add('active');
             
-            updateSummary();
+            const freqText = event.currentTarget.textContent;
+            document.getElementById('summaryFrequency').textContent = freqText;
         }
 
-        // Select end option
+        // End option selection
         function selectEndOption(option) {
             const endOptions = document.querySelectorAll('.end-option');
             endOptions.forEach(eo => eo.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            
-            updateSummary();
         }
 
-        // Select card
+        // Card selection
         function selectCard(cardType) {
             const cardOptions = document.querySelectorAll('.card-option');
             cardOptions.forEach(co => co.classList.remove('active'));
             event.currentTarget.classList.add('active');
             
-            updateSummary();
+            const cardText = event.currentTarget.querySelector('.type').textContent;
+            document.getElementById('summaryMethod').textContent = cardText;
         }
 
         // Add new card
@@ -676,47 +773,38 @@
             // In a real app, this would open a modal or redirect
         }
 
-        // Update summary
-        function updateSummary() {
-            const frequency = document.querySelector('.frequency-option.active')?.textContent || 'One-Time';
-            const card = document.querySelector('.card-option.active .type')?.textContent || 'No card selected';
-            
-            const frequencySummary = document.getElementById('frequencySummary');
-            const endSummary = document.getElementById('endSummary');
-            
-            if (frequency !== 'One-Time') {
-                frequencySummary.innerHTML = `<span class="summary-label">Frequency:</span><span class="summary-value">${frequency}</span>`;
-                endSummary.innerHTML = `<span class="summary-label">Payment Method:</span><span class="summary-value">${card}</span>`;
-            }
-        }
-
-        // Form submission
-        document.querySelector('.btn-primary').addEventListener('click', function() {
-            const amount = document.querySelector('.info-value.amount').textContent;
-            const member = document.querySelector('.info-group:nth-child(2) .info-value').textContent;
-            const date = document.querySelector('input[type="date"]').value;
-            const scheduleType = document.querySelector('.schedule-type.active .label').textContent;
-            
-            if (scheduleType === 'Recurring') {
-                const frequency = document.querySelector('.frequency-option.active').textContent;
-                alert(`✅ Recurring payment scheduled for ${member}\nAmount: ${amount}\nFirst Payment: ${date}\nFrequency: ${frequency}`);
-            } else {
-                alert(`✅ One-time payment scheduled for ${member}\nAmount: ${amount}\nPayment Date: ${date}`);
-            }
-        });
-
-        document.querySelector('.btn-secondary').addEventListener('click', function() {
+        // Cancel schedule
+        function cancelSchedule() {
             if (confirm('Are you sure you want to cancel? Any entered information will be lost.')) {
                 alert('Schedule cancelled.');
             }
-        });
+        }
 
-        // Initialize date picker with tomorrow's date
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        const dateInput = document.querySelector('input[type="date"]');
-        dateInput.value = tomorrow.toISOString().split('T')[0];
-        dateInput.min = tomorrow.toISOString().split('T')[0];
+        // Schedule payment
+        function schedulePayment() {
+            const amount = '$244.00';
+            const member = 'Francesca Ferrucci';
+            const date = document.getElementById('summaryDate').textContent;
+            const scheduleType = document.getElementById('summaryType').textContent;
+            
+            if (scheduleType === 'Recurring') {
+                const frequency = document.getElementById('summaryFrequency').textContent;
+                alert(`✅ Recurring payment scheduled for ${member}\nAmount: ${amount}\nFirst Payment: ${date}\nFrequency: ${frequency}\n\nPayment has been scheduled successfully!`);
+            } else {
+                alert(`✅ One-time payment scheduled for ${member}\nAmount: ${amount}\nPayment Date: ${date}\n\nPayment has been scheduled successfully!`);
+            }
+        }
+
+        // Notification toggles
+        document.querySelectorAll('.notification-option').forEach(option => {
+            const checkbox = option.querySelector('input[type="checkbox"]');
+            option.addEventListener('click', function(e) {
+                if (e.target.type !== 'checkbox') {
+                    checkbox.checked = !checkbox.checked;
+                }
+                option.classList.toggle('active', checkbox.checked);
+            });
+        });
     </script>
 </body>
 </html>
